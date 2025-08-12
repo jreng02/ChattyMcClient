@@ -131,10 +131,10 @@ And really, I looked for an OpenAI API-compatible chat app for Windows and most 
 	 						"content": "All of your scraped text, including newlines, goes directly in this string."
 						}
 ```
-\
-	*Where:*
- 		- "status": "success": Mandatory.
-   		- "content": "...": A single string containing the complete text output of your tool. This is what will be placed into the "Tool Output" message in the chat.
+
+*Where:*
+	"status": "success": Mandatory.
+	"content": "...": A single string containing the complete text output of your tool. This is what will be placed into the "Tool Output" message in the chat.
 
 ```
 			- On Failure:{"status": "error",
