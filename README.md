@@ -108,12 +108,12 @@ And really, I looked for an OpenAI API-compatible chat app for Windows and most 
 **Tools protocol**:
 
 **Part 1**: Tool Input
-     **How Chatty McClient passes tool argument**:
- 		- The app passes a single string of command-line arguments.
-   		- When you type a command like "@/search *The most capable model you can run on a single GPU* in the chat, the application does the following:
-	 		1.  It identifies the tool by the alias (`/search`).
-			2.  It takes everything that comes *after* the alias and treats it as a single string of arguments.
-   			3.  It launches the tool's process and passes that string as an argument.
+		**How Chatty McClient passes tool argument**:
+		 		- The app passes a single string of command-line arguments.
+		   		- When you type a command like "@/search *The most capable model you can run on a single GPU* in the chat, the application does the following:
+			 		1.  It identifies the tool by the alias (`/search`).
+					2.  It takes everything that comes *after* the alias and treats it as a single string of arguments.
+		   			3.  It launches the tool's process and passes that string as an argument.
 
    **How Your Script Receives It:**
    		- **PowerShell (`.ps1`):** The arguments are available in the `$args` array. Our current scripts use `param([string]$searchTerm)` which automatically assigns the first argument to the `$searchTerm` variable.
