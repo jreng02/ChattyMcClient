@@ -33,8 +33,8 @@ All I wanted was a pony, and for LM Studio to release a client of their own. Whi
     						"name": "getweather",
     						"arguments": "{\"input\": \"-Paris -C -0\"}"
     						}
-                  }
-             ]
+    			}
+    		]
         </tool_code>
 	```    
      - **You** use this pattern in the input field:  \"@/<tool> <argument>" to send to tool>; eg: @/search "how can I delete a certain chat app I accidentally downloaded?"
