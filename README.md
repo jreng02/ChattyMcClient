@@ -21,8 +21,10 @@ All I wanted was a pony, and for LM Studio to release a client of their own. Whi
 
 - External tools support.      
   - Pick your language poison (Python, C++, C#, PowerShell (if you're brave), Esperanto, whatever. There's a protocol for input/output at the end.
-     - Both you and your model can run tools. 
-          - Model uses this pattern. If your model is stubborn about tool use, putting this in System Prompt might help it.
+  	- Both you and your model can run tools.
+   	- **Model** uses this pattern. If your model is stubborn about tool use, putting this in System Prompt might help it.
+      
+    ```json
               <tool_code>
               [
                 {
@@ -34,8 +36,8 @@ All I wanted was a pony, and for LM Studio to release a client of their own. Whi
                   }
                ]
               </tool_code>
-
-     - You use this pattern in the input field:  \"@/<tool> <argument>" to send to tool>; eg: @/search "how can I delete a certain chat app I accidentally downloaded?"
+	```
+     - **You** use this pattern in the input field:  \"@/<tool> <argument>" to send to tool>; eg: @/search "how can I delete a certain chat app I accidentally downloaded?"
   
 - Run, Edit, Delete, Copy, Exclude actions in context window.
   - Run: re-runs that user turn, and in the process overwriting/deleting the context from that point on. Useful for when you can't make your darn model run your tool just right.
@@ -52,13 +54,12 @@ All I wanted was a pony, and for LM Studio to release a client of their own. Whi
       1. You ask your model to use the "webscrape" tool on a website and create a summary.                 
       2. The tool imports a chunk of raw HTML and your model creates a summary.                 
       3. Why do you need an incomprehensible blob of HTML there anymore?
-         
-    - There's an option in settings to exclude tool output automatically.                  
-    - Why would you **not** want to use this always? Well your model might get the summary wrong and you ask it again to look closer.
+         - There's an option in settings to exclude tool output automatically.
+         - Why would you **not** want to use this always? Well your model might get the summary wrong and you ask it again to look closer.
 
 - Attach files to talk to.            
   - This is WIP (like the rest of the app isn't, lol), but also limited by what the server and model supports.                  
-  - Text files and images work, PDF does not (yet)
+  - Text files and images work, PDFs do not (yet)
 
 **Project size**: ~3.20Mb, assuming you already have .Net 8.0 runtime installed. I have included a couple of "tools" for testing out of the box.
 
@@ -91,7 +92,8 @@ Again: **I** would not download this app if I can't see the sources. If you do, 
 1. **LOL, none**. 
 	Drop files onto a folder you like, and create a "Tools" folder under it to hold your tools (if you want)
 
-===========
+
+---
 
 **A well thought out and organized list of FAQ:**
 
@@ -105,34 +107,36 @@ And really, I looked for an OpenAI API-compatible chat app for Windows and most 
 
 **Tools protocol**:
 
-Part 1: Tool Input
-  ** How Chatty McClient passes tool argument **
-     - The app passes a single string of command-line arguments.
-     - When you type a command like "@/search *The most capable model you can run on a single GPU* in the chat, the application does the following:
-          1.  It identifies the tool by the alias (`/search`).
-          2.  It takes everything that comes *after* the alias and treats it as a single string of arguments.
-          3.  It launches the tool's process and passes that string as an argument.
+**Part 1**: Tool Input
+	**How Chatty McClient passes tool argument**:
+    	- The app passes a single string of command-line arguments.
+     	- When you type a command like "@/search *The most capable model you can run on a single GPU* in the chat, the application does the following:
+        	1.  It identifies the tool by the alias (`/search`).
+          	2.  It takes everything that comes *after* the alias and treats it as a single string of arguments.
+          	3.  It launches the tool's process and passes that string as an argument.
 
    **How Your Script Receives It:**
-      *   **PowerShell (`.ps1`):** The arguments are available in the `$args` array. Our current scripts use `param([string]$searchTerm)` which automatically assigns the first argument to the `$searchTerm` variable.
-      *   **Batch File (`.bat`):** The arguments are available as `%1`, `%2`, etc., or `%*` for all of them.
-      *   **Python (`.py`):** The arguments are available in the `sys.argv` list (e.g., `sys.argv[1]`).
+      - **PowerShell (`.ps1`):** The arguments are available in the `$args` array. Our current scripts use `param([string]$searchTerm)` which automatically assigns the first argument to the `$searchTerm` variable.
+      - **Batch File (`.bat`):** The arguments are available as `%1`, `%2`, etc., or `%*` for all of them.
+      - **Python (`.py`):** The arguments are available in the `sys.argv` list (e.g., `sys.argv[1]`).
 
 
-Part 2: Tool Output    ** How Chatty McClient receives payload from the tool: **
-   - Your tool must still print a single, valid JSON string to Standard Output.
+**Part 2**: Tool Output    
+	**How Chatty McClient receives payload from the tool**:
+   		- Your tool must still print a single, valid JSON string to Standard Output.
 
-       - On Success:                    {                 "status": "success",
+       	- On Success: {"status": "success",
                  "content": "All of your scraped text, including newlines, goes directly in this string."
                 }
-         Where:   
-               "status": "success": Mandatory.               "content": "...": A single string containing the complete text output of your tool. This is what will be placed into the "Tool Output" message in the chat.
+         *Where*:   
+               "status": "success": Mandatory.
+			   "content": "...": A single string containing the complete text output of your tool. This is what will be placed into the "Tool Output" message in the chat.
 
-       - On Failure:{
-  "status": "error",
-  "error_message": "A clear description of what went wrong."
-}
+       	- On Failure:{"status": "error",
+  			"error_message": "A clear description of what went wrong."
+			}
 
+---
 
 **Tool Example**: scrape Reddit sub for new posts:
 
