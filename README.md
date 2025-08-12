@@ -108,6 +108,7 @@ And really, I looked for an OpenAI API-compatible chat app for Windows and most 
 **Tools protocol**:
 
 **Part 1**: Tool Input
+
 		**How Chatty McClient passes tool argument**:
 		 		- The app passes a single string of command-line arguments.
 		   		- When you type a command like "@/search *The most capable model you can run on a single GPU* in the chat, the application does the following:
