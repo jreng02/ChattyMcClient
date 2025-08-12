@@ -132,9 +132,9 @@ And really, I looked for an OpenAI API-compatible chat app for Windows and most 
 						}
 ```
 
-*Where:*
-	"status": "success": Mandatory.
-	"content": "...": A single string containing the complete text output of your tool. This is what will be placed into the "Tool Output" message in the chat.
+*Where:* <br>   
+	A. "status": "success": Mandatory. <br>
+	B. "content": "...": A single string containing the complete text output of your tool. This is what will be placed into the "Tool Output" message in the chat.<br>
 
 ```
 			- On Failure:{"status": "error",
