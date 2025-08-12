@@ -61,7 +61,7 @@ All I wanted was a pony, and for LM Studio to release a client of their own. Whi
   - This is WIP (like the rest of the app isn't, lol), but also limited by what the server and model supports.                  
   - Text files and images work, PDFs do not (yet)
 
-**Project size**: ~3.20Mb, assuming you already have .Net 8.0 runtime installed. I have included a couple of "tools" for testing out of the box.
+**Project size**: ~80Mb, assuming you already have .Net 8.0 runtime installed. I have included a couple of "tools" for testing out of the box.
 
 ---
 
