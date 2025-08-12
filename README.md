@@ -240,6 +240,9 @@ catch {
 $output | ConvertTo-Json -Compress | Write-Output        
 ```
 ---
+<br>
+User Guide, here: https://github.com/jreng02/ChattyMcClient/blob/main/user-guide.md
+<br>
 
 ### The end
 
