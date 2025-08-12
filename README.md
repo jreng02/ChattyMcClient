@@ -4,10 +4,11 @@
 **Description:**  
 Lame attempt at an OpenAI API‑compatible client for Windows – and possibly other .NET 8.0+ platforms.
 
-> *You will be shocked to learn I'm not a developer, I'm an AI jockey.*  
-> This project was ~90% coded by awesomeness that is [Google’s Gemini 2.5 Pro](https://aistudio.google.com/suite/gemini-2-5-pro) (no affiliation) under my direction and constant nagging. All I wanted was a pony, and for LM Studio to release a client of their own. While we all wait for that, I built this to use it.  
+You will be shocked to learn I'm not a developer, I'm an AI jockey.
 
-> Fair warning: This project is packed with inconsistencies and bugs throughout. Do not put it in charge of liver transplants or anything serious.
+This project was ~90% coded by awesomeness that is [Google’s Gemini 2.5 Pro](https://aistudio.google.com/suite/gemini-2-5-pro) (no affiliation) under my direction and constant nagging. All I wanted was a pony, and for LM Studio to release a client of their own. While we all wait for that, I built this to use it.  
+
+**Fair warning**: This project is packed with inconsistencies and bugs throughout. Do not put it in charge of liver transplants or anything serious.
 
 ---
 
