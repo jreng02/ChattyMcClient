@@ -10,7 +10,7 @@ All I wanted was a pony, and for LM Studio to release a client of their own. Whi
 
 **Fair warning**: This project is packed with inconsistencies and bugs throughout. Do not put it in charge of liver transplants or anything serious. 
 
-** Some features I found useful **
+**Some features I found useful**
 
 - Multi-chat sessions that are written to a local JSON file you can edit and mess with. These are great for debugging what your model is *actually* doing.
 
@@ -76,7 +76,7 @@ So GDPR hawks and people with nothing better to do: :stuck_out_tongue: Nothing t
 
 ---
 
-** Source code **:
+**Source code**:
 
 Q: Why haven't you released the source code?!? How do I know any of this is true!? 
 
@@ -86,13 +86,14 @@ Again: **I** would not download this app if I can't see the sources. If you do, 
 
 ---
 
-** Installation **
+**Installation**
 
-1. None lol. Drop files onto a folder you like, and create a "Tools" folder under it to hold your tools (if you want)
+1. **LOL, none**. 
+	Drop files onto a folder you like, and create a "Tools" folder under it to hold your tools (if you want)
 
 ===========
 
-** A well thought out and organized list of FAQ: **
+**A well thought out and organized list of FAQ:**
 
 Q: Why would you release this abomination onto an unsuspecting world??
 
@@ -102,7 +103,7 @@ And really, I looked for an OpenAI API-compatible chat app for Windows and most 
 
 ---
 
-** Tools protocol **:
+**Tools protocol**:
 
 Part 1: Tool Input
   ** How Chatty McClient passes tool argument **
@@ -133,11 +134,13 @@ Part 2: Tool Output    ** How Chatty McClient receives payload from the tool:
 }
 
 
-** Tool Example **: scrape Reddit sub for new posts:
+**Tool Example**: scrape Reddit sub for new posts:
 
-   ** NOTE **: None of my business but please use with care. Reddit servers run on two tired hamsters and really don't need the extra load of AI scraping their website on a loop.
+   **NOTE**: None of my business but please use with care. Reddit servers run on two tired hamsters and really don't need the extra load of AI scraping their website on a loop.
 
 *******
+
+```powershell
 #Requires -Version 5.1
 
 <#
@@ -226,7 +229,7 @@ catch {
 
 # Convert the final result object to a compact JSON string and print to stdout.
 $output | ConvertTo-Json -Compress | Write-Output        
-
+```
 ---
 
 ### The end
