@@ -117,27 +117,27 @@ And really, I looked for an OpenAI API-compatible chat app for Windows and most 
 		   			3.  It launches the tool's process and passes that string as an argument.
 
    **How Your Script Receives It:**
+   
    		- **PowerShell (`.ps1`):** The arguments are available in the `$args` array. Our current scripts use `param([string]$searchTerm)` which automatically assigns the first argument to the `$searchTerm` variable.
 	 	- **Batch File (`.bat`):** The arguments are available as `%1`, `%2`, etc., or `%*` for all of them.
    		- **Python (`.py`):** The arguments are available in the `sys.argv` list (e.g., `sys.argv[1]`).
 
 
 **Part 2**: Tool Output
+
 	**How Chatty McClient receives payload from the tool**:
  		- Your tool must still print a single, valid JSON string to Standard Output.
-   			```json
 	  		- On Success: {"status": "success",
-                 "content": "All of your scraped text, including newlines, goes directly in this string."
-                }
-         *Where*:   
-               "status": "success": Mandatory.
-			   "content": "...": A single string containing the complete text output of your tool. This is what will be placed into the "Tool Output" message in the chat.
-	  		```
-
-       	- On Failure:{"status": "error",
-  			"error_message": "A clear description of what went wrong."
-			}
-
+	 						"content": "All of your scraped text, including newlines, goes directly in this string."
+						}
+         *Where*:
+		 	"status": "success": Mandatory.
+			"content": "...": A single string containing the complete text output of your tool. This is what will be placed into the "Tool Output" message in the chat.
+```
+			- On Failure:{"status": "error",
+  					"error_message": "A clear description of what went wrong."
+					}
+```
 ---
 
 **Tool Example**: scrape Reddit sub for new posts:
