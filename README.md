@@ -2,7 +2,7 @@
 
 **Description**: 
 
-A lame attempt at an OpenAI API-compatible client for Windows - and possibly other .Net 8.0+ platforms.
+A lame attempt at an OpenAI API-compatible, Large Language Model (LLM) client for Windows - and possibly other .Net 8.0+ platforms.
 
 You will be shocked to learn I'm not a developer, I'm an AI jockey. This project was ~90% coded by awesomeness that is Google's Gemini 2.5 Pro (no affiliation) under my direction and constant nagging. 
 
@@ -12,7 +12,7 @@ All I wanted was a pony, and for LM Studio to release a client of their own. Whi
 
 **Some features I found useful**
 
-- Multi-chat sessions that are written to a local JSON file you can edit and mess with. These are great for debugging what your model is *actually* doing.
+- Multi-chat model sessions that are written to a local JSON file you can edit and mess with. These are great for debugging what your model is *actually* doing.
 
 - Global or per-session settings. 
     - I run a variety of models but I wouldn't want my 80Mb, 2048 token context one to get a huge system prompt or a bunch of tools description     
